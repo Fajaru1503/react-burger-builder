@@ -4,11 +4,18 @@ import styled from "styled-components";
 import BurgerIngredient from "./BurgerIngredient/BurgerIngredient";
 
 const burger = props => {
+  const ingredients = Object.keys(props.ingredients).map(ingredientsName => {
+    return [...Array(props.ingredients[ingredientsName])].map((_, i) => {
+      return (
+        <BurgerIngredient key={ingredientsName + i} type={ingredientsName} />
+      );
+    });
+  });
+
   return (
     <Container>
       <BurgerIngredient type="bread-top" />
-      <BurgerIngredient type="cheese" />
-      <BurgerIngredient type="meat" />
+      {ingredients}
       <BurgerIngredient type="bread-bottom" />
     </Container>
   );
