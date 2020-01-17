@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
+import Burger from "../../components/Burger/Burger";
+
 class BurgerBuilder extends Component {
   render() {
     return (
       <Container>
-        <div>Burger</div>
+        <Burger />
         <div>Burger Controls</div>
       </Container>
     );
