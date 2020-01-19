@@ -4,13 +4,21 @@ import styled from "styled-components";
 import BurgerIngredient from "./BurgerIngredient/BurgerIngredient";
 
 const burger = props => {
-  const ingredients = Object.keys(props.ingredients).map(ingredientsName => {
-    return [...Array(props.ingredients[ingredientsName])].map((_, i) => {
-      return (
-        <BurgerIngredient key={ingredientsName + i} type={ingredientsName} />
-      );
-    });
-  });
+  let ingredients = Object.keys(props.ingredients)
+    .map(ingredientsName => {
+      return [...Array(props.ingredients[ingredientsName])].map((_, i) => {
+        return (
+          <BurgerIngredient key={ingredientsName + i} type={ingredientsName} />
+        );
+      });
+    })
+    .reduce((array, item) => {
+      return array.concat(item);
+    }, []);
+
+  if (ingredients.length === 0) {
+    ingredients = <p>There's no ingredient</p>;
+  }
 
   return (
     <Container>
