@@ -5,7 +5,7 @@ const BuildControl = props => {
   return (
     <BuildContainer>
       <BuildLabel>{props.label}</BuildLabel>
-      <ButtonLess>Less</ButtonLess>
+      <ButtonLess onClick={props.removed}>Less</ButtonLess>
       <ButtonMore onClick={props.added}>More</ButtonMore>
     </BuildContainer>
   );

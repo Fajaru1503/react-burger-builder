@@ -19,6 +19,7 @@ const BuildControls = props => {
           label={item.label}
           type={item.type}
           added={() => props.ingredientAdded(item.type)}
+          removed={() => props.ingredientRemoved(item.type)}
         />
       ))}
     </Controls>
