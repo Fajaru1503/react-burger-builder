@@ -4,6 +4,13 @@ import styled from "styled-components";
 import Burger from "../../components/Burger/Burger";
 import BurgerControls from "../../components/Burger/BuildControls/BuildControls";
 
+const INGREDIENT_PRICES = {
+  salad: 0.5,
+  cheese: 0.2,
+  meat: 1.0,
+  bacon: 0.8
+};
+
 class BurgerBuilder extends Component {
   state = {
     ingredients: {
@@ -11,14 +18,28 @@ class BurgerBuilder extends Component {
       cheese: 0,
       meat: 0,
       bacon: 0
-    }
+    },
+    totalPrice: 1
+  };
+
+  addIngredientHandler = type => {
+    const oldCount = this.state.ingredients[type];
+    const updatedCount = oldCount + 1;
+    const updatedIngredients = {
+      ...this.state.ingredients
+    };
+    updatedIngredients[type] = updatedCount;
+    const priceAddtion = INGREDIENT_PRICES[type];
+    const oldPrice = this.state.totalPrice;
+    const newPrice = oldPrice + priceAddtion;
+    this.setState({ totalPrice: newPrice, ingredients: updatedIngredients });
   };
 
   render() {
     return (
       <Container>
         <Burger ingredients={this.state.ingredients} />
-        <BurgerControls />
+        <BurgerControls ingredientAdded={this.addIngredientHandler} />
       </Container>
     );
   }
