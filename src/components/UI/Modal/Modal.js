@@ -2,7 +2,16 @@ import React from "react";
 import styled from "styled-components";
 
 const modal = props => {
-  return <Modal>{props.children}</Modal>;
+  return (
+    <Modal
+      style={{
+        opacity: props.show ? "1" : "0",
+        transform: props.show ? "translateY(0)" : "translateY(-100vh)"
+      }}
+    >
+      {props.children}
+    </Modal>
+  );
 };
 
 export default modal;
