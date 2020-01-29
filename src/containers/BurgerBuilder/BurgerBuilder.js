@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 import Burger from "../../components/Burger/Burger";
 import BurgerControls from "../../components/Burger/BuildControls/BuildControls";
+import Modal from "../../components/UI/Modal/Modal";
+import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
 
 const INGREDIENT_PRICES = {
   salad: 0.5,
@@ -31,9 +33,7 @@ class BurgerBuilder extends Component {
       .reduce((sum, el) => {
         return sum + el;
       }, 0);
-    console.log(sum);
     this.setState({ purchasable: sum > 0 });
-    console.log(this.state.purchasable);
   };
 
   addIngredientHandler = type => {
@@ -75,6 +75,9 @@ class BurgerBuilder extends Component {
 
     return (
       <Container>
+        <Modal>
+          <OrderSummary ingredients={this.state.ingredients} />
+        </Modal>
         <Burger ingredients={this.state.ingredients} />
         <BurgerControls
           ingredientAdded={this.addIngredientHandler}
