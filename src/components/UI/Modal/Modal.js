@@ -1,16 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 
+import Aux from "../../../hoc/Aux";
+import Backdrop from "../Backdrop/Backdrop";
+
 const modal = props => {
   return (
-    <Modal
-      style={{
-        opacity: props.show ? "1" : "0",
-        transform: props.show ? "translateY(0)" : "translateY(-100vh)"
-      }}
-    >
-      {props.children}
-    </Modal>
+    <Aux>
+      <Backdrop show={props.show} clicked={props.modalClosed} />
+      <Modal
+        style={{
+          opacity: props.show ? "1" : "0",
+          transform: props.show ? "translateY(0)" : "translateY(-100vh)"
+        }}
+      >
+        {props.children}
+      </Modal>
+    </Aux>
   );
 };
 
