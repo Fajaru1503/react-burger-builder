@@ -7,7 +7,11 @@ import NavigationItems from "../NavigationItems/NavigationItems";
 const toolbar = props => {
   return (
     <Header>
-      <div onClick={props.opened}>MENU</div>
+      <Hamburger onClick={props.opened}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </Hamburger>
       <Logo height="80%" />
       <nav>
         <NavigationItems />
@@ -38,6 +42,33 @@ const Header = styled.header`
 
     @media only screen and (min-width: 500px) {
       display: block;
+    }
+  }
+`;
+
+const Hamburger = styled.div`
+  height: 16px;
+  position: relative;
+  width: 24px;
+
+  span {
+    background-color: #fff;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+
+    &:first-child {
+      top: 0;
+    }
+
+    &:nth-child(2) {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &:last-child {
+      bottom: 0;
     }
   }
 `;
