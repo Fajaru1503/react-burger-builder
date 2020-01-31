@@ -4,10 +4,10 @@ import styled from "styled-components";
 import Logo from "../../Logo/Logo";
 import NavigationItems from "../NavigationItems/NavigationItems";
 
-const sideDrawer = props => {
+const sideDrawer = () => {
   return (
     <Drawer>
-      <Logo height="11%" />
+      <Logo height="11%" marginBottom="32px" />
       <NavigationItems />
     </Drawer>
   );

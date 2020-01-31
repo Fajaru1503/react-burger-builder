@@ -17,9 +17,12 @@ const navigationItems = () => {
 export default navigationItems;
 
 const Items = styled.ul`
-  align-items: center;
-  display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
+
+  @media only screen and (min-width: 500px) {
+    align-items: center;
+    display: flex;
+  }
 `;

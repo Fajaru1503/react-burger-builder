@@ -14,33 +14,45 @@ const navigationItem = props => {
 export default navigationItem;
 
 const Item = styled.li`
-  align-items: center;
-  box-sizing: border-box;
-  display: flex;
-  height: 100%;
-  margin: 0;
+  margin: 16px 0;
+  width: 100%;
+
+  @media only screen and (min-width: 500px) {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    height: 100%;
+    margin: 0;
+    width: auto;
+  }
 `;
 
 const Link = styled.a`
-  border-bottom: 4px solid transparent;
   box-sizing: border-box;
-  color: #fff;
+  color: ${props => (props.active ? "#40a48c" : "#8f5c2c")};
   display: block;
-  height: 100%;
-  padding: 16px 10px;
   text-decoration: none;
-  ${props => {
-    if (props.active) {
-      return `background-color: #8f5c2c;
-      border-bottom: 4px solid #40a48c;
-      color: #fff;`;
-    }
-  }}
 
   &:hover,
   &:active {
-    background-color: #8f5c2c;
-    border-bottom: 4px solid #40a48c;
+    color: #40a48c;
+  }
+
+  @media only screen and (min-width: 500px) {
+    background-color: ${props => (props.active ? "#8f5c2c" : "transparent")};
+    border-bottom: 4px solid
+      ${props => (props.active ? "#40a48c" : "#transparent")};
+    box-sizing: border-box;
     color: #fff;
+    height: 100%;
+    padding: 16px 10px;
+    text-decoration: none;
+
+    &:hover,
+    &:active {
+      background-color: #8f5c2c;
+      border-bottom: 4px solid #40a48c;
+      color: #fff;
+    }
   }
 `;

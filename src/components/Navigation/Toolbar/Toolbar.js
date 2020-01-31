@@ -33,6 +33,11 @@ const Header = styled.header`
   z-index: 90;
 
   nav {
+    display: none;
     height: 100%;
+
+    @media only screen and (min-width: 500px) {
+      display: block;
+    }
   }
 `;

@@ -5,7 +5,7 @@ import burgerLogo from "../../assets/images/logo/logo.png";
 
 const logo = props => {
   return (
-    <Logo height={props.height}>
+    <Logo height={props.height} marginBottom={props.marginBottom}>
       <img src={burgerLogo} alt="MyBurger" />
     </Logo>
   );
@@ -17,7 +17,8 @@ const Logo = styled.div`
   background-color: #fff;
   border-radius: 5px;
   box-sizing: border-box;
-  height: ${props => props.height};
+  height: ${props => (props.height ? props.height : 0)};
+  margin-bottom: ${props => (props.marginBottom ? props.marginBottom : 0)};
   padding: 8px;
 
   img {
