@@ -1,15 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 
+import Aux from "../../../hoc/Aux";
 import Logo from "../../Logo/Logo";
 import NavigationItems from "../NavigationItems/NavigationItems";
+import Backdrop from "../../UI/Backdrop/Backdrop";
 
-const sideDrawer = () => {
+const sideDrawer = props => {
   return (
-    <Drawer>
-      <Logo height="11%" marginBottom="32px" />
-      <NavigationItems />
-    </Drawer>
+    <Aux>
+      <Backdrop show={props.open} clicked={props.closed} />
+      <Drawer show={props.open}>
+        <Logo height="11%" marginBottom="32px" />
+        <NavigationItems />
+      </Drawer>
+    </Aux>
   );
 };
 
@@ -25,6 +30,7 @@ const Drawer = styled.div`
   position: fixed;
   top: 0;
   transition: transform 0.3s ease-in-out;
+  transform: ${props => (props.show ? "translateX(0)" : "translateX(-100%)")};
   width: 280px;
   z-index: 200;
 
