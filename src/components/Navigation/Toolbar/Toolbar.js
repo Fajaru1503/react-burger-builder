@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
+import Logo from "../../Logo/Logo";
+
 const toolbar = props => {
   return (
     <Header>
       <div>MENU</div>
-      <div>LOGO</div>
+      <Logo />
       <div>...</div>
     </Header>
   );

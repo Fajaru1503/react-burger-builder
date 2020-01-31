@@ -17,9 +17,9 @@ class BurgerBuilder extends Component {
   state = {
     ingredients: {
       salad: 0,
+      bacon: 0,
       cheese: 0,
-      meat: 0,
-      bacon: 0
+      meat: 0
     },
     totalPrice: 2,
     purchasable: false,
@@ -94,6 +94,7 @@ class BurgerBuilder extends Component {
         >
           <OrderSummary
             ingredients={this.state.ingredients}
+            price={this.state.totalPrice}
             purchaseCanceled={this.purchaseCancelHandler}
             purchaseContinued={this.purchaseContinueHandler}
           />
