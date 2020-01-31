@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 
+import Aux from "../../hoc/Aux";
 import Burger from "../../components/Burger/Burger";
 import BurgerControls from "../../components/Burger/BuildControls/BuildControls";
 import Modal from "../../components/UI/Modal/Modal";
@@ -87,7 +87,7 @@ class BurgerBuilder extends Component {
     }
 
     return (
-      <Container>
+      <Aux>
         <Modal
           show={this.state.purchased}
           modalClosed={this.purchaseCancelHandler}
@@ -107,13 +107,9 @@ class BurgerBuilder extends Component {
           purchasable={this.state.purchasable}
           ordered={this.purchaseHandler}
         />
-      </Container>
+      </Aux>
     );
   }
 }
-
-const Container = styled.section`
-  margin-top: 16px;
-`;
 
 export default BurgerBuilder;
