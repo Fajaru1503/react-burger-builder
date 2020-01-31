@@ -8,8 +8,10 @@ const toolbar = props => {
   return (
     <Header>
       <div>MENU</div>
-      <Logo />
-      <NavigationItems />
+      <Logo height="80%" />
+      <nav>
+        <NavigationItems />
+      </nav>
     </Header>
   );
 };
@@ -29,4 +31,8 @@ const Header = styled.header`
   top: 0;
   width: 100%;
   z-index: 90;
+
+  nav {
+    height: 100%;
+  }
 `;

@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 import burgerLogo from "../../assets/images/logo/logo.png";
 
-const logo = () => {
+const logo = props => {
   return (
-    <Logo>
+    <Logo height={props.height}>
       <img src={burgerLogo} alt="MyBurger" />
     </Logo>
   );
@@ -17,7 +17,7 @@ const Logo = styled.div`
   background-color: #fff;
   border-radius: 5px;
   box-sizing: border-box;
-  height: 80%;
+  height: ${props => props.height};
   padding: 8px;
 
   img {
