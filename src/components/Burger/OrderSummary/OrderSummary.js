@@ -1,10 +1,10 @@
 import React from "react";
 
-import Aux from "../../../hoc/Aux";
+import Fragment from "../../../hoc/Fragment";
 import Button from "../../UI/Button/Button";
 
-const orderSummary = props => {
-  const ingredientSummary = Object.keys(props.ingredients).map(item => {
+const orderSummary = (props) => {
+  const ingredientSummary = Object.keys(props.ingredients).map((item) => {
     return (
       <li key={item}>
         <span style={{ textTransform: "capitalize" }}>{item}</span>:{" "}
@@ -14,7 +14,7 @@ const orderSummary = props => {
   });
 
   return (
-    <Aux>
+    <Fragment>
       <h3>Your Order</h3>
       <p>A delicious burger with the following ingredients:</p>
       <ul>{ingredientSummary}</ul>
@@ -28,7 +28,7 @@ const orderSummary = props => {
       <Button buttonType="Success" clicked={props.purchaseContinued}>
         CONTINUE
       </Button>
-    </Aux>
+    </Fragment>
   );
 };
 
